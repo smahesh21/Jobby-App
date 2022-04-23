@@ -1,0 +1,227 @@
+.jobs-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.responsive-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: #000000;
+}
+.filtering-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.profile-image {
+  height: 40px;
+  width: 40px;
+}
+.type-of-employment-container {
+  display: flex;
+  flex-direction: column;
+}
+.main-heading {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+}
+.profile-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+  padding: 10px;
+}
+.hr-line {
+  width: 100%;
+}
+.profile-name {
+  font-family: 'Robot';
+  font-size: 20px;
+  color: #4f46e5;
+  font-weight: 500;
+}
+.designation {
+  font-family: 'Robot';
+  font-size: 15px;
+  color: #64748b;
+}
+.employment-types-list {
+  list-style-type: none;
+  padding: 0px;
+}
+.list-item {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+.jobs-display-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding-left: 20px;
+}
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #cdcfd1;
+}
+.search-button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}
+.search-element {
+  height: 40px;
+  width: 100%;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.search-icon {
+  width: 10%;
+  height: 38px;
+  color: #f1f6f8;
+  background-color: #53565a;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+}
+.failure-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.failure-heading {
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: 500;
+  color: #f1f6f8;
+}
+.failure-description {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #c5c9ca;
+}
+.retry-button {
+  height: 30px;
+  border: none;
+  background-color: #4f46e5;
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+}
+.job-details-container {
+  display: flex;
+  flex-direction: column;
+}
+.jobs-list-container {
+  padding: 0px;
+  list-style-type: none;
+}
+
+.job-details-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #3f3d3f;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.link-item {
+  text-decoration: none;
+}
+.company-logo-title {
+  display: flex;
+  justify-content: flex-start;
+}
+.company-logo {
+  height: 70px;
+  width: 70px;
+  border-radius: 4px;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+.title {
+  font-family: 'Roboto';
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rating {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.star-icon {
+  color: yellow;
+  font-size: 15px;
+}
+.location-employment-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.location-employment {
+  display: flex;
+  justify-content: flex-start;
+}
+.location-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 50px;
+}
+.icons {
+  color: #ffffff;
+  font-size: 18px;
+}
+.description {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #b6b3b3;
+}
+.description-text {
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #dbd6d6;
+  margin-left: 10px;
+}
+
+.employment-type-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.package-per-annum {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.description-heading {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: #ffffff;
+}
+.hr-line {
+  width: 100%;
+}
