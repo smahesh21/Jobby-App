@@ -6,15 +6,8 @@ import {AiFillStar} from 'react-icons/ai'
 
 import './index.css'
 
-const apiStatusConstants = {
-  initial: 'INITIAL',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  inProgress: 'IN_PROGRESS',
-}
-
 class JobItemDetails extends Component {
-  state = {companyDetails: {}, apiStatus: apiStatusConstants.initial}
+  state = {companyDetails: {}}
 
   componentDidMount() {
     this.getJobDetails()
