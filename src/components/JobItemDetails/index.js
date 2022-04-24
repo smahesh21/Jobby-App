@@ -65,7 +65,9 @@ class JobItemDetails extends Component {
 
   renderCompanyDetails = () => {
     const {companyDetails} = this.state
+    const {jobDetails,similarJobs}
     console.log(companyDetails)
+    console.log(similarJobs)
     const {
       companyLogoUrl,
       employmentType,
@@ -75,7 +77,7 @@ class JobItemDetails extends Component {
       location,
       packagePerAnnum,
       skills,
-    } = companyDetails.jobDetails
+    } = jobDetails
 
     return (
       <div className="job-item-details-container">
