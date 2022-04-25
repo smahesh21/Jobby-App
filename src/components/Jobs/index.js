@@ -279,7 +279,7 @@ class Jobs extends Component {
       this.onClickSearchInput(event.target.value)
     return (
       <div className="search-container">
-        <button type="button" className="search-button" testid="searchButton">
+        <button type="button" testid="searchButton" className="search-button">
           <input
             type="search"
             placeholder="Search"
@@ -288,7 +288,9 @@ class Jobs extends Component {
             className="search-element"
           />
         </button>
-        <AiOutlineSearch size={20} className="search-icon" />
+        <div className="search-icon">
+          <AiOutlineSearch size={25} />
+        </div>
       </div>
     )
   }

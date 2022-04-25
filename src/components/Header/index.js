@@ -30,18 +30,18 @@ const Header = props => {
             <li className="nav-item">Jobs</li>
           </Link>
         </ul>
-        <ul className="mobile-nav-items-container">
+        <div className="mobile-nav-items-container">
           <Link to="/" className="nav-link">
             <button type="button" className="button-icon">
-              <AiOutlineHome size="30" />
+              <AiOutlineHome size={30} />
             </button>
           </Link>
           <Link to="/jobs" className="nav-link">
             <button type="button" className="button-icon">
-              <BsBriefcase size="30" />
+              <BsBriefcase size={30} />
             </button>
           </Link>
-        </ul>
+        </div>
         <div>
           <button
             type="button"
@@ -57,7 +57,7 @@ const Header = props => {
             onClick={onClickLogout}
             className="mobile-logout-button"
           >
-            <FiLogOut size={24} className="logout-icon" />
+            <FiLogOut size={30} className="logout-icon" />
           </button>
         </div>
       </div>
