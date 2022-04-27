@@ -194,6 +194,11 @@ class Jobs extends Component {
   }
 
   onClickSearchInput = searchInput => {
+    this.setState({searchInput})
+  }
+
+  onClickSearchIcon = () => {
+    const {searchInput} = this.state
     this.setState({searchInput}, this.getJobsData)
   }
 
@@ -277,18 +282,28 @@ class Jobs extends Component {
     const {searchInput} = this.state
     const onChangeSearchInput = event =>
       this.onClickSearchInput(event.target.value)
+
+    const onClickSearchButton = () => {
+      this.onClickSearchIcon(searchInput)
+    }
+
     return (
       <div className="search-container">
-        <button type="button" className="search-button" testid="searchButton">
-          <input
-            type="search"
-            placeholder="Search"
-            value={searchInput}
-            onChange={onChangeSearchInput}
-            className="search-element"
-          />
+        <input
+          type="search"
+          placeholder="Search"
+          value={searchInput}
+          onChange={onChangeSearchInput}
+          className="search-element"
+        />
+        <button
+          type="button"
+          testid="searchButton"
+          onClick={onClickSearchButton}
+          className="search-button"
+        >
+          <AiOutlineSearch className="search-icon" size={24} />
         </button>
-        <AiOutlineSearch size={20} className="search-icon" />
       </div>
     )
   }
