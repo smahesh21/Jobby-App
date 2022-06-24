@@ -11,13 +11,16 @@
 }
 @media screen and (max-width: 576px) {
   .responsive-container {
+    width: 100%;
     flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 .filtering-container {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 30%;
 }
 @media screen and (max-width: 576px) {
   .filtering-container {
@@ -69,8 +72,9 @@
 .jobs-display-container {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 70%;
   padding-left: 20px;
+  margin-right: 25px;
 }
 @media screen and (max-width: 576px) {
   .jobs-display-container {
@@ -94,8 +98,8 @@
 .search-button {
   outline: none;
   border: none;
-  background-color: transparent;
-  width: 100%;
+  background-color: #53565a;
+  width: 15%;
 }
 .search-element {
   height: 40px;
@@ -108,13 +112,13 @@
   padding: 10px;
 }
 .search-icon {
-  width: 15%;
-  height: 38px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #f1f6f8;
-  background-color: #53565a;
+
+  border-radius: 3px;
 }
 .loader-container {
   display: flex;
@@ -132,6 +136,28 @@
   color: #f1f6f8;
 }
 .failure-description {
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #c5c9ca;
+}
+.no-job-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.no-job-image {
+  height: 50%;
+  width: 50%;
+}
+.no-job-heading {
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: 500;
+  color: #f1f6f8;
+}
+.no-job-description {
   font-family: 'Roboto';
   font-size: 14px;
   color: #c5c9ca;
@@ -253,7 +279,7 @@
 }
 @media screen and (max-width: 576px) {
   .search-icon {
-    width: 15%;
+    width: 100%;
   }
   .title {
     font-size: 18px;

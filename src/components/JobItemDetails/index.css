@@ -190,6 +190,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style-type: none;
+  padding: 0px;
 }
 .similar-jobs-container {
   display: flex;

@@ -19,7 +19,7 @@ class Jobs extends Component {
   state = {
     jobsList: [],
     searchInput: '',
-    activeEmploymentType: '',
+    activeEmploymentType: [],
     packagePerAnnum: '',
     apiStatus: apiStatusConstants.initial,
     profileDetails: {},
@@ -65,11 +65,26 @@ class Jobs extends Component {
     }
   }
 
+  renderNoJobView = () => (
+    <div className="no-job-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+        className="no-job-image"
+        alt="no jobs"
+      />
+      <h1 className="no-job-heading">No Jobs Found</h1>
+      <p className="no-job-description">
+        We could not find any jobs. Try other filters
+      </p>
+    </div>
+  )
+
   renderJobDetailsCard = () => {
     const {jobsList} = this.state
-    return (
+    return jobsList.length === 0 ? (
+      this.renderNoJobView()
+    ) : (
       <div className="jobs-details-container">
-        {this.renderSearchContainer()}
         <ul className="jobs-list-container">
           {jobsList.map(eachJob => {
             const {
@@ -83,7 +98,7 @@ class Jobs extends Component {
               employmentType,
             } = eachJob
             return (
-              <li className="job-details-card">
+              <li className="job-details-card" key={eachJob.id}>
                 <Link to={`/jobs/${id}`} className="link-item">
                   <div className="company-logo-title">
                     <img
@@ -144,6 +159,10 @@ class Jobs extends Component {
     </div>
   )
 
+  onClickRetryButton = () => {
+    this.getJobsData()
+  }
+
   renderFailureView = () => (
     <div className="failure-view-container">
       <img
@@ -155,7 +174,11 @@ class Jobs extends Component {
       <p className="failure-description">
         We cannot seem to find the page you are looking for.
       </p>
-      <button type="button" className="retry-button">
+      <button
+        type="button"
+        onClick={this.onClickRetryButton}
+        className="retry-button"
+      >
         Retry
       </button>
     </div>
@@ -194,11 +217,18 @@ class Jobs extends Component {
   }
 
   onClickSearchInput = searchInput => {
+    this.setState({searchInput})
+  }
+
+  onClickSearchIcon = () => {
+    const {searchInput} = this.state
     this.setState({searchInput}, this.getJobsData)
   }
 
   onChangeEmploymentType = employmentTypeId => {
-    this.setState({activeEmploymentType: employmentTypeId}, this.getJobsData)
+    const {activeEmploymentType} = this.state
+    const updatedTypeId = [...activeEmploymentType, employmentTypeId]
+    this.setState({activeEmploymentType: updatedTypeId}, this.getJobsData)
   }
 
   onChangeSalaryRange = salaryRangeId => {
@@ -217,21 +247,17 @@ class Jobs extends Component {
             const onClickEmploymentType = () =>
               this.onChangeEmploymentType(eachType.employmentTypeId)
             return (
-              <div>
+              <li key={eachType.employmentTypeId}>
                 <input
                   type="checkbox"
                   id="checkbox"
                   value={label}
                   onClick={onClickEmploymentType}
                 />
-                <label
-                  htmlFor="checkbox"
-                  key={eachType.employmentTypeId}
-                  className="list-item"
-                >
+                <label htmlFor="checkbox" key={label} className="list-item">
                   {label}
                 </label>
-              </div>
+              </li>
             )
           })}
         </ul>
@@ -251,21 +277,17 @@ class Jobs extends Component {
             const onClickSalaryRange = () =>
               this.onChangeSalaryRange(eachType.salaryRangeId)
             return (
-              <div>
+              <li key={eachType.salaryRangeId}>
                 <input
                   type="radio"
                   id="radio"
                   value={label}
                   onClick={onClickSalaryRange}
                 />
-                <label
-                  htmlFor="radio"
-                  key={eachType.salaryRangeId}
-                  className="list-item"
-                >
+                <label htmlFor="radio" key={label} className="list-item">
                   {label}
                 </label>
-              </div>
+              </li>
             )
           })}
         </ul>
@@ -277,20 +299,28 @@ class Jobs extends Component {
     const {searchInput} = this.state
     const onChangeSearchInput = event =>
       this.onClickSearchInput(event.target.value)
+
+    const onClickSearchButton = () => {
+      this.onClickSearchIcon(searchInput)
+    }
+
     return (
       <div className="search-container">
-        <button type="button" testid="searchButton" className="search-button">
-          <input
-            type="search"
-            placeholder="Search"
-            value={searchInput}
-            onChange={onChangeSearchInput}
-            className="search-element"
-          />
+        <input
+          type="search"
+          placeholder="Search"
+          value={searchInput}
+          onChange={onChangeSearchInput}
+          className="search-element"
+        />
+        <button
+          type="button"
+          testid="searchButton"
+          onClick={onClickSearchButton}
+          className="search-button"
+        >
+          <AiOutlineSearch className="search-icon" size={24} />
         </button>
-        <div className="search-icon">
-          <AiOutlineSearch size={25} />
-        </div>
       </div>
     )
   }
@@ -308,6 +338,7 @@ class Jobs extends Component {
             {this.renderSalaryRangesCard()}
           </div>
           <div className="jobs-display-container">
+            {this.renderSearchContainer()}
             {this.renderJobDetailsBasedOnApiStatus()}
           </div>
         </div>

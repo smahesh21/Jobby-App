@@ -42,7 +42,7 @@ const Header = props => {
             </button>
           </Link>
         </div>
-        <div>
+        <li className="button-container">
           <button
             type="button"
             onClick={onClickLogout}
@@ -50,7 +50,7 @@ const Header = props => {
           >
             Logout
           </button>
-        </div>
+        </li>
         <div>
           <button
             type="button"

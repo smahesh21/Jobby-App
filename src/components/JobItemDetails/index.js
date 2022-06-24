@@ -102,7 +102,7 @@ class JobItemDetails extends Component {
     return (
       <ul className="similarjobs-container">
         {similarJobs.map(eachJob => (
-          <li className="similar-jobs-container">
+          <li className="similar-jobs-container" key={eachJob.id}>
             <div className="company-logo-title">
               <img
                 src={eachJob.similarCompanyLogoUrl}
@@ -141,12 +141,7 @@ class JobItemDetails extends Component {
   }
 
   renderCompanyDetails = () => {
-    const {companyDetails, similarJobs, jobSkills, lifeAtCompany} = this.state
-
-    console.log(companyDetails)
-
-    console.log(similarJobs)
-    console.log(jobSkills)
+    const {companyDetails, jobSkills, lifeAtCompany} = this.state
     const {
       companyLogoUrl,
       companyWebsiteUrl,
@@ -203,7 +198,7 @@ class JobItemDetails extends Component {
           <h1 className="main-heading">Skills</h1>
           <ul className="skill-container">
             {jobSkills.map(eachSkill => (
-              <li className="skill-image-name">
+              <li className="skill-image-name" key={eachSkill.skillName}>
                 <img
                   src={eachSkill.skillImageUrl}
                   className="skill-image"
@@ -237,6 +232,10 @@ class JobItemDetails extends Component {
     </div>
   )
 
+  onClickRetryButton = () => {
+    this.getJobDetails()
+  }
+
   renderFailureView = () => (
     <div className="failure-view-container">
       <img
@@ -248,11 +247,13 @@ class JobItemDetails extends Component {
       <p className="failure-description">
         We cannot seem to find the page you are looking for.
       </p>
-      <Link to="/jobs">
-        <button type="button" className="retry-button">
-          Retry
-        </button>
-      </Link>
+      <button
+        type="button"
+        onClick={this.onClickRetryButton}
+        className="retry-button"
+      >
+        Retry
+      </button>
     </div>
   )
 
