@@ -102,7 +102,11 @@ class JobItemDetails extends Component {
     return (
       <ul className="similarjobs-container">
         {similarJobs.map(eachJob => (
+<<<<<<< HEAD
           <li className="similar-jobs-container" key={eachJob.id}>
+=======
+          <li className="similar-jobs-container">
+>>>>>>> 4f6eea703740ab9236e28b82c097af586bd83f02
             <div className="company-logo-title">
               <img
                 src={eachJob.similarCompanyLogoUrl}
@@ -141,7 +145,16 @@ class JobItemDetails extends Component {
   }
 
   renderCompanyDetails = () => {
+<<<<<<< HEAD
     const {companyDetails, jobSkills, lifeAtCompany} = this.state
+=======
+    const {companyDetails, similarJobs, jobSkills, lifeAtCompany} = this.state
+
+    console.log(companyDetails)
+
+    console.log(similarJobs)
+    console.log(jobSkills)
+>>>>>>> 4f6eea703740ab9236e28b82c097af586bd83f02
     const {
       companyLogoUrl,
       companyWebsiteUrl,
@@ -198,7 +211,11 @@ class JobItemDetails extends Component {
           <h1 className="main-heading">Skills</h1>
           <ul className="skill-container">
             {jobSkills.map(eachSkill => (
+<<<<<<< HEAD
               <li className="skill-image-name" key={eachSkill.skillName}>
+=======
+              <li className="skill-image-name">
+>>>>>>> 4f6eea703740ab9236e28b82c097af586bd83f02
                 <img
                   src={eachSkill.skillImageUrl}
                   className="skill-image"
@@ -232,10 +249,13 @@ class JobItemDetails extends Component {
     </div>
   )
 
+<<<<<<< HEAD
   onClickRetryButton = () => {
     this.getJobDetails()
   }
 
+=======
+>>>>>>> 4f6eea703740ab9236e28b82c097af586bd83f02
   renderFailureView = () => (
     <div className="failure-view-container">
       <img
@@ -247,6 +267,7 @@ class JobItemDetails extends Component {
       <p className="failure-description">
         We cannot seem to find the page you are looking for.
       </p>
+<<<<<<< HEAD
       <button
         type="button"
         onClick={this.onClickRetryButton}
@@ -254,6 +275,13 @@ class JobItemDetails extends Component {
       >
         Retry
       </button>
+=======
+      <Link to="/jobs">
+        <button type="button" className="retry-button">
+          Retry
+        </button>
+      </Link>
+>>>>>>> 4f6eea703740ab9236e28b82c097af586bd83f02
     </div>
   )
 
